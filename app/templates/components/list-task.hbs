@@ -1,0 +1,19 @@
+<div class="list-group">
+  {{#each model as |task|}}
+    <a href="#" {{action "viewTask" task.id}} class={{if task.completed "list-group-item list-group-item-success" "list-group-item list-group-item-danger" }}>
+      <div style="float: left;">
+        {{task.name}}
+      </div>
+      <div style="float: right;">
+        {{#if task.completed}}
+        {{else}}
+        <button class="btn btn-default" type="submit" {{action "completeTask" task.id bubbles=false}}>Complete Task</button>
+        {{/if}}
+        <button class="btn btn-default" type="submit" {{action "deleteTask" task.id bubbles=false}}>Delete Task</button>
+      </div>
+      <div style="clear:both"></div>
+    </a>
+  {{else}}
+    <div class="list-group-item">Sorry, no tasks found.</div>
+  {{/each}}
+</div>

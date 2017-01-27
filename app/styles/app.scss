@@ -1,0 +1,36 @@
+@import "bootstrap";
+
+body {
+  padding-top: 20px;
+}
+
+.bg-black{
+  background-color: #151515;
+}
+
+.ht300{
+ height: 300px !important;
+}
+
+.left{
+  width:50%;
+  float:left;
+}
+
+.right{
+  width:50%;
+  float:left;
+  padding-left:10px;
+}
+
+.clr{
+  clear:both;
+}
+
+.green{
+  color: #3c763d;
+}
+
+.red{
+  color: #a94442;
+}

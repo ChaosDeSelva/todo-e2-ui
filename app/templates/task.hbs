@@ -1,0 +1,24 @@
+<h1>Task</h1>
+
+<h5>Name</h5>
+{{model.name}}
+<br/><br/>
+
+<h5>Description</h5>
+{{#if model.description}}
+  {{model.description}}
+{{else}}
+  No Description.
+{{/if}}
+<br/><br/>
+
+<h5>Completed Status</h5>
+{{#if model.completed}}
+  {{fa-icon "check-circle" class="green" size="lg"}}
+{{else}}
+  {{fa-icon "times-circle" class="red" size="lg"}}
+{{/if}}
+<br/><br/>
+
+<h5>Created Date</h5>
+{{date-format model.id}}

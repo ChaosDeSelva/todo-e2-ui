@@ -1,0 +1,18 @@
+<form>
+  <div class="form-group">
+    <label for="task">Task Name</label>
+    {{input type="text" id="taskName" class="form-control" placeholder="Task" autofocus="autofocus" value=taskName}}
+  </div>
+  <div class="form-group">
+    <label for="task">Task Description</label>
+    {{textarea class="form-control ht300" placeholer="Description" value=description}}
+  </div>
+  {{#if session.isLogged}}
+  <div class="form-group">
+    <div class="checkbox">
+      <label>{{input type="checkbox" checked=privateStatus}} Make Private</label>
+    </div>
+  </div>
+  {{/if}}
+  <button class="btn btn-default" type="submit" {{action "createTask"}}>Create Task</button>
+</form>

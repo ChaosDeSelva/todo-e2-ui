@@ -1,0 +1,17 @@
+	<h1>Create Account</h1><br>
+	<form>
+  <div class="form-group">
+    <label for="task">Username</label>
+    {{input type="text" id="username" class="form-control" placeholder="Username" autofocus="autofocus" value=username}}
+  </div>
+  <div class="form-group">
+    <label for="task">Password</label>
+    {{input type="password" id="password" class="form-control" placeholder="Password" value=password}}
+  </div>
+  <div class="form-group">
+    <label for="task">Confirm Password</label>
+    {{input type="password" id="confirmpassword" class="form-control" placeholder="Confirm Password" value=confirmpassword}}
+  </div>
+
+  <button class="btn btn-default" type="submit" {{action "createAccount"}}>Create Account</button>
+	</form>
