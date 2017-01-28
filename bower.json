@@ -2,6 +2,6 @@
   "name": "task-manager",
   "dependencies": {
     "font-awesome": "~4.5.0",
-    "sweetalert","*"
+    "sweetalert":"*"
   }
 }
