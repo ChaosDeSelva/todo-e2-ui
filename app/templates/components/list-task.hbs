@@ -1,8 +1,21 @@
+{{#if session.isLogged}}
+  <div style="float: left; padding: 5px;">
+    Hello {{session.username}},
+  </div>
+  <div style="float: right; padding: 5px;">
+    {{#if filterEnabled}}
+      Show All {{fa-icon "eye-slash" size="lg" class="btns" click=(action "filterOff")}}
+    {{else}}
+      Show Mine {{fa-icon "eye" size="lg" class="btns" click=(action "filterOn")}}
+    {{/if}}
+  </div>
+  <div style="clear:both"></div>
+{{/if}}
 <div class="list-group">
   {{#each model as |task|}}
     <a href="#" {{action "viewTask" task.id}} class={{if task.completed "list-group-item list-group-item-success" "list-group-item list-group-item-danger" }}>
       <div style="float: left;">
-        {{task.name}}
+        {{#if task.private}} {{fa-icon "user-secret" size="lg"}} {{/if}} {{task.name}}
       </div>
       <div style="float: right;">
         {{#if task.completed}}

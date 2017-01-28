@@ -1,6 +1,16 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
+      session: Ember.inject.service(),
+
+      beforeModel (){
+        var promise = new Promise(function(resolve, reject) {
+          this.get('session').ping(resolve, reject);
+        }.bind(this));
+
+        this.get('session').set('promise',promise);
+      },
+
       actions: {
         error: function(error, transition){
             console.log(error);

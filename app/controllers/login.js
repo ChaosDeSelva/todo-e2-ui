@@ -15,6 +15,7 @@ export default Ember.Controller.extend({
       if (un.length > 0 || pw.length > 0){
         this.get('session').authenticate(un, pw).then((info)=>{
           if (info.token !== null){
+            this.get('store').unloadAll('task');
             this.transitionToRoute('/');
           } else {
             window.swal('Well...', 'That account was not found!!! Probably your fault!', 'error');

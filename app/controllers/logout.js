@@ -6,6 +6,7 @@ export default Ember.Controller.extend({
   actions:{
     logout (){
       this.get('session').unauthenticate().then(()=>{
+        this.get('store').unloadAll('task');
         this.transitionToRoute('/');
       }, (err)=>{
         console.log(err);

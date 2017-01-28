@@ -1,7 +1,7 @@
 <h1>Task</h1>
 
 <h5>Name</h5>
-{{model.name}}
+{{#if model.private}} {{fa-icon "user-secret" size="lg"}} {{/if}} {{model.name}}
 <br/><br/>
 
 <h5>Description</h5>

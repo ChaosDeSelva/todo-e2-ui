@@ -12,12 +12,13 @@ export default Ember.Component.extend({
     createTask (){
       var taskName = this.get('taskName');
 
-        if (taskName.length > 0){ console.log(this.get('privateStatus'));
+        if (taskName.length > 0){
         var task = this.get('store').createRecord('task', {
           name: this.get('taskName'),
           description: this.get('description'),
           completed: false,
-          private: this.get('privateStatus')
+          private: this.get('privateStatus'),
+          uid: this.get('session').uid
         });
 
         task.save();

@@ -34,3 +34,14 @@ body {
 .red{
   color: #a94442;
 }
+
+.btns{
+    opacity: 0.5;
+    filter: alpha(opacity=50);
+}
+
+.btns:hover{
+    opacity: 1.0;
+    filter: alpha(opacity=100);
+    cursor: pointer;
+}
