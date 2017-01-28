@@ -5,5 +5,6 @@ export default DS.Model.extend({
   description: DS.attr('string'),
   completed: DS.attr('boolean'),
   uid: DS.attr('string'),
-  private: DS.attr('boolean')
+  private: DS.attr('boolean'),
+  comments: DS.hasMany('comment')
 });

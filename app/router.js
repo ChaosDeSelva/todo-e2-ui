@@ -14,6 +14,7 @@ Router.map(function() {
   this.route('logout');
   this.route('createAccount', { path: '/create' });
   this.route('forgotPassword');
+  this.route('reports');
 });
 
 export default Router;

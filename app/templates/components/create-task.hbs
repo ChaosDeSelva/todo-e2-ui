@@ -5,12 +5,12 @@
   </div>
   <div class="form-group">
     <label for="task">Task Description</label>
-    {{textarea class="form-control ht300" placeholer="Description" value=description}}
+    {{tinymce-editor class="form-control ht300" value=description onValueChanged=(action "myOnChangedAction")}}
   </div>
   {{#if session.isLogged}}
   <div class="form-group">
     <div class="checkbox">
-      <label>{{input type="checkbox" checked=privateStatus}} Make Private</label>
+      <label>{{input type="checkbox" checked=privateStatus}} <b>Make Private</b></label>
     </div>
   </div>
   {{/if}}

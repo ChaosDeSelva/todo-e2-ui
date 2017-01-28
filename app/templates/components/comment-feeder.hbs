@@ -1,0 +1,14 @@
+<div class="commentFeed">
+    <div class="row">
+          {{#each model as |comment|}}
+            <blockquote class="quote-card">
+                <p>
+                  {{format-tags comment.message}}
+                </p>
+                <cite>
+                  {{comment.username}} - {{comment.created}}
+                </cite>
+            </blockquote>
+          {{/each}}
+    </div>
+</div>

@@ -6,7 +6,7 @@
 
 <h5>Description</h5>
 {{#if model.description}}
-  {{model.description}}
+  {{format-tags model.description}}
 {{else}}
   No Description.
 {{/if}}
@@ -22,3 +22,13 @@
 
 <h5>Created Date</h5>
 {{date-format model.id}}
+
+<br/><br/>
+
+{{comment-feeder model=model.comments}}
+
+<br/><br/>
+
+{{comment-creator model=model.id}}
+
+<br/><br/>

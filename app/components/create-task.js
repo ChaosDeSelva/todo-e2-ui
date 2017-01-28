@@ -9,6 +9,9 @@ export default Ember.Component.extend({
   privateStatus: false,
 
   actions:{
+    myOnChangedAction (value) {
+      this.set('description', value);
+    },
     createTask (){
       var taskName = this.get('taskName');
 
