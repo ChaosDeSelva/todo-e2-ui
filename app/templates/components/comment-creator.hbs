@@ -1,9 +1,9 @@
 {{#if session.isLogged}}
 <form>
     <div class="form-group">
-        <label for="task">Comment Message</label>
+        <label for="task">{{t "task.comment.message"}}</label>
       {{tinymce-editor class="form-control ht150" value=commentMessage onValueChanged=(action "myOnChangedAction")}}
     </div>
-    <button class="btn btn-default" type="submit" {{action "createComment"}}>Submit Comment</button>
+    <button class="btn btn-default" type="submit" {{action "createComment"}}>{{t "task.comment.button"}}</button>
 </form>
 {{/if}}

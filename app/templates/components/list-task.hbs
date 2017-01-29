@@ -1,12 +1,12 @@
 {{#if session.isLogged}}
   <div style="float: left; padding: 5px;">
-    Hello {{session.username}},
+    {{t "list.task"}} {{session.username}},
   </div>
   <div style="float: right; padding: 5px;">
     {{#if filterEnabled}}
-      Show All {{fa-icon "eye-slash" size="lg" class="btns" click=(action "filterOff")}}
+      {{t "list.task.show.all"}} {{fa-icon "eye-slash" size="lg" class="btns" click=(action "filterOff")}}
     {{else}}
-      Show Mine {{fa-icon "eye" size="lg" class="btns" click=(action "filterOn")}}
+      {{t "list.task.show.mine"}} {{fa-icon "eye" size="lg" class="btns" click=(action "filterOn")}}
     {{/if}}
   </div>
   <div style="clear:both"></div>
@@ -20,13 +20,13 @@
       <div style="float: right;">
         {{#if task.completed}}
         {{else}}
-        <button class="btn btn-default" type="submit" {{action "completeTask" task.id bubbles=false}}>Complete Task</button>
+        <button class="btn btn-default" type="submit" {{action "completeTask" task.id bubbles=false}}>{{t "list.task.complete"}}</button>
         {{/if}}
-        <button class="btn btn-default" type="submit" {{action "deleteTask" task.id bubbles=false}}>Delete Task</button>
+        <button class="btn btn-default" type="submit" {{action "deleteTask" task.id bubbles=false}}>{{t "list.task.delete"}}</button>
       </div>
       <div style="clear:both"></div>
     </a>
   {{else}}
-    <div class="list-group-item">Sorry, no tasks found.</div>
+    <div class="list-group-item">{{t "list.task.none"}}</div>
   {{/each}}
 </div>

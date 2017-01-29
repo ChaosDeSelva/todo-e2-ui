@@ -1,18 +1,18 @@
 <form>
   <div class="form-group">
-    <label for="task">Task Name</label>
-    {{input type="text" id="taskName" class="form-control" placeholder="Task" autofocus="autofocus" value=taskName}}
+    <label for="task">{{t "create.task.title"}}</label>
+    {{input type="text" id="taskName" class="form-control" placeholder=(t "create.task.title") autofocus="autofocus" value=taskName}}
   </div>
   <div class="form-group">
-    <label for="task">Task Description</label>
+    <label for="task">{{t "create.task.description"}}</label>
     {{tinymce-editor class="form-control ht300" value=description onValueChanged=(action "myOnChangedAction")}}
   </div>
   {{#if session.isLogged}}
   <div class="form-group">
     <div class="checkbox">
-      <label>{{input type="checkbox" checked=privateStatus}} <b>Make Private</b></label>
+      <label>{{input type="checkbox" checked=privateStatus}} <b>{{t "create.task.private"}}</b></label>
     </div>
   </div>
   {{/if}}
-  <button class="btn btn-default" type="submit" {{action "createTask"}}>Create Task</button>
+  <button class="btn btn-default" type="submit" {{action "createTask"}}>{{t "create.task.submit"}}</button>
 </form>

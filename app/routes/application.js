@@ -2,9 +2,10 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
       session: Ember.inject.service(),
+      i18n: Ember.inject.service(),
 
       beforeModel (){
-        var promise = new Promise(function(resolve, reject) {
+        var promise = new Ember.RSVP.Promise(function(resolve, reject) {
           this.get('session').ping(resolve, reject);
         }.bind(this));
 
@@ -12,7 +13,7 @@ export default Ember.Route.extend({
       },
 
       actions: {
-        error: function(error, transition){
+        error: function(error){
             console.log(error);
             if (error.status === 0) {
                 window.swal('Hmm... Not Good.', 'Internet Issues?', 'error');

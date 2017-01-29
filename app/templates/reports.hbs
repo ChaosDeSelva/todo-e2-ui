@@ -1,3 +1,5 @@
-<h1>Logging Chart</h1>
-{{bar-chart data=model options=options}}
+<h1>{{t "reports"}}</h1>
+{{#if refresh}}
+  {{bar-chart data=model options=options}}
+{{/if}}
 <br/><br/>

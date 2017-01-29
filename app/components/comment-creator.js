@@ -3,6 +3,7 @@ import Ember from 'ember';
 export default Ember.Component.extend({
   store: Ember.inject.service(),
   session: Ember.inject.service(),
+  i18n: Ember.inject.service(),
 
   commentMessage: '',
 
@@ -11,13 +12,22 @@ export default Ember.Component.extend({
       this.set('commentMessage', value);
     },
     createComment (){
+      const i18n = this.get('i18n');
+      const confirmTitle = i18n.t('comment.create.confirm.title').string;
+      const confirmText = i18n.t('comment.create.confirm.message').string;
+      const confirmButton = i18n.t('comment.create.confirm.button').string;
+      const confirmGoodTitle = i18n.t('comment.create.confirm.good.title').string;
+      const confirmGoodText = i18n.t('comment.create.confirm.good.text').string;
+      const confirmBadTitle = i18n.t('comment.create.confirm.bad.title').string;
+      const confirmBadText = i18n.t('comment.create.confirm.bad.text').string;
+
       window.swal({
-          title: "Are you sure?",
-          text: "FYI I am to lazy to create functionality for you to delete it!",
+          title: confirmTitle,
+          text: confirmText,
           type: "warning",
           showCancelButton: true,
           confirmButtonColor: "#DD6B55",
-          confirmButtonText: "DO IT!",
+          confirmButtonText: confirmButton,
           closeOnConfirm: false,
           timer: 2000
         },
@@ -39,10 +49,10 @@ export default Ember.Component.extend({
             comment.save();
 
             this.set('commentMessage', '');
-            window.swal("Well...", "That is permanent.", "success");
+            window.swal(confirmGoodTitle, confirmGoodText, "success");
 
           } else {
-            window.swal("No Go!", "Field is empty!", "error");
+            window.swal(confirmBadTitle, confirmBadText, "error");
           }
         }.bind(this));
     }

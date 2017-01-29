@@ -1,15 +1,15 @@
-	<h1>Log In</h1><br>
+	<h1>`</h1><br>
 	<form>
   <div class="form-group">
-    <label for="task">Username</label>
-    {{input type="text" id="username" class="form-control" placeholder="Username" autofocus="autofocus" value=username}}
+    <label for="task">{{t "login.username"}}</label>
+    {{input type="text" id="username" class="form-control" placeholder=(t "login.username") autofocus="autofocus" value=username}}
   </div>
   <div class="form-group">
-    <label for="task">Password</label>
-    {{input type="password" id="password" class="form-control" placeholder="Password" value=password}}
+    <label for="task">{{t "login.password"}}</label>
+    {{input type="password" id="password" class="form-control" placeholder=(t "login.password") value=password}}
   </div>
 
-  <button class="btn btn-default" type="submit" {{action "login"}}>LOG IN</button> - {{#link-to 'createAccount'}}<a href="">Create Account</a>{{/link-to}} - {{#link-to 'forgotPassword'}}<a href="">Forgot Password</a>{{/link-to}}
+  <button class="btn btn-default" type="submit" {{action "login"}}>{{t "login.button"}}</button> - {{#link-to 'createAccount'}}<a href="">{{t "login.createaccount"}}</a>{{/link-to}} - {{#link-to 'forgotPassword'}}<a href="">{{t "login.forgotpass"}}</a>{{/link-to}}
 	</form>
 
 

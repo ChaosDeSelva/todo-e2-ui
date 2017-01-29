@@ -3,6 +3,7 @@ import Ember from 'ember';
 export default Ember.Component.extend({
   store: Ember.inject.service(),
   session: Ember.inject.service(),
+  i18n: Ember.inject.service(),
 
   cacheModel: [],
 
@@ -25,16 +26,28 @@ export default Ember.Component.extend({
      this.get('goto')(id);
     },
     completeTask (id){
+      const i18n = this.get('i18n');
+
       this.get('store').findRecord('task', id, { backgroundReload: false }).then(function(task) {
         task.set('completed', true);
         task.save();
-        window.swal("Wow", "You actually completed a task!", "success");
+
+        const completeTitle = i18n.t('complete.title').string;
+        const completeMsg = i18n.t('complete.message').string;
+
+        window.swal(completeTitle, completeMsg, "success");
       });
     },
     deleteTask (id){
+      const i18n = this.get('i18n');
+
       this.get('store').findRecord('task', id, { backgroundReload: false }).then(function(task) {
         task.destroyRecord();
-        window.swal("Well...", "You deleted it.", "success");
+
+        const deleteTitle = i18n.t('delete.title').string;
+        const deleteMsg = i18n.t('delete.message').string;
+
+        window.swal(deleteTitle, deleteMsg, "success");
       });
     }
   }

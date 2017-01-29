@@ -29,7 +29,7 @@ export default Ember.Service.extend({
         method: 'GET',
         url: config.services.taskUrl+'/logout',
         headers: { 'Authorization': 'Basic ' + this.get('token') }
-      }).then((info)=>{
+      }).then(()=>{
         this.set('token', null);
         sessionStorage .removeItem("tasktoken");
       });
@@ -61,10 +61,17 @@ export default Ember.Service.extend({
           this.set('username', info.username);
           this.set('uid', info.uid);
         }
-        resolve(true);
+        var promise = this.get('promise');
+        if (promise!==null) {
+          resolve(true);
+        }
       });
     } else {
-      reject(true);
+      reject();
+
+      this.set('token', null);
+      this.set('username', null);
+      this.set('uid', null);
     }
   }
 });

@@ -7,20 +7,20 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      {{#link-to 'index' class="navbar-brand"}}Task Manager{{/link-to}}
+      {{#link-to 'index' class="navbar-brand"}}{{t "nav.title"}}{{/link-to}}
     </div>
 
     <div class="collapse navbar-collapse" id="main-navbar">
       <ul class="nav navbar-nav">
-          {{#link-to 'index' tagName="li"}}<a href="">Home</a>{{/link-to}}
-          {{#link-to 'about' tagName="li"}}<a href="">About</a>{{/link-to}}
-          {{#link-to 'reports' tagName="li"}}<a href="">Reports</a>{{/link-to}}
+          {{#link-to 'index' tagName="li"}}<a href="">{{t "nav.home"}}</a>{{/link-to}}
+          {{#link-to 'about' tagName="li"}}<a href="">{{t "nav.about"}}</a>{{/link-to}}
+          {{#link-to 'reports' tagName="li"}}<a href="">{{t "nav.reports"}}</a>{{/link-to}}
       </ul>
       <ul class="nav navbar-nav navbar-right">
       {{#if session.isLogged}}
-        {{#link-to 'logout' tagName="li"}}<a href="">Log Out</a>{{/link-to}}
+        {{#link-to 'logout' tagName="li"}}<a href="">{{t "nav.logout"}}</a>{{/link-to}}
       {{else}}
-        {{#link-to 'login' tagName="li"}}<a href="">Log In | Create Account</a>{{/link-to}}
+        {{#link-to 'login' tagName="li"}}<a href="">{{t "nav.login"}}</a>{{/link-to}}
       {{/if}}
       </ul>
     </div>

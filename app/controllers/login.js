@@ -5,12 +5,18 @@ export default Ember.Controller.extend({
   password: '',
 
   session: Ember.inject.service(),
+  i18n: Ember.inject.service(),
 
   actions:{
     login (){
 
       var un = this.get('username');
       var pw = this.get('password');
+      const i18n = this.get('i18n');
+      const goodTitle = i18n.t('login.good.title').string;
+      const goodMessage = i18n.t('login.good.message').string;
+      const badTitle = i18n.t('login.bad.title').string;
+      const badMessage = i18n.t('login.bad.message').string;
 
       if (un.length > 0 || pw.length > 0){
         this.get('session').authenticate(un, pw).then((info)=>{
@@ -18,13 +24,13 @@ export default Ember.Controller.extend({
             this.get('store').unloadAll('task');
             this.transitionToRoute('/');
           } else {
-            window.swal('Well...', 'That account was not found!!! Probably your fault!', 'error');
+            window.swal(goodTitle, goodMessage, 'error');
           }
         }, (err)=>{
           console.log(err);
         });
       } else {
-        window.swal('Hey Now!', 'All fields are required here!', 'error');
+        window.swal(badTitle, badMessage, 'error');
       }
     }
   }

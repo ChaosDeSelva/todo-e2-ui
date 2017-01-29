@@ -1,18 +1,18 @@
-<h1>Task</h1>
+<h1>{{t "task.title"}}</h1>
 
-<h5>Name</h5>
+<h5>{{t "task.name"}}</h5>
 {{#if model.private}} {{fa-icon "user-secret" size="lg"}} {{/if}} {{model.name}}
 <br/><br/>
 
-<h5>Description</h5>
+<h5>{{t "task.description"}}</h5>
 {{#if model.description}}
   {{format-tags model.description}}
 {{else}}
-  No Description.
+  {{t "task.description.none"}}
 {{/if}}
 <br/><br/>
 
-<h5>Completed Status</h5>
+<h5>{{t "task.completed"}}</h5>
 {{#if model.completed}}
   {{fa-icon "check-circle" class="green" size="lg"}}
 {{else}}
@@ -20,7 +20,7 @@
 {{/if}}
 <br/><br/>
 
-<h5>Created Date</h5>
+<h5>{{t "task.date"}}</h5>
 {{date-format model.id}}
 
 <br/><br/>
