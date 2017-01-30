@@ -20,7 +20,6 @@ export default Ember.Component.extend({
       this.set('filterEnabled', false);
       var cacheModel = this.get('cacheModel');
       this.set('model',cacheModel);
-
     },
     viewTask (id){
      this.get('goto')(id);

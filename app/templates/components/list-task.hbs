@@ -11,22 +11,24 @@
   </div>
   <div style="clear:both"></div>
 {{/if}}
-<div class="list-group">
-  {{#each model as |task|}}
-    <a href="#" {{action "viewTask" task.id}} class={{if task.completed "list-group-item list-group-item-success" "list-group-item list-group-item-danger" }}>
-      <div style="float: left;">
-        {{#if task.private}} {{fa-icon "user-secret" size="lg"}} {{/if}} {{task.name}}
-      </div>
-      <div style="float: right;">
-        {{#if task.completed}}
-        {{else}}
-        <button class="btn btn-default" type="submit" {{action "completeTask" task.id bubbles=false}}>{{t "list.task.complete"}}</button>
-        {{/if}}
-        <button class="btn btn-default" type="submit" {{action "deleteTask" task.id bubbles=false}}>{{t "list.task.delete"}}</button>
-      </div>
-      <div style="clear:both"></div>
-    </a>
-  {{else}}
-    <div class="list-group-item">{{t "list.task.none"}}</div>
-  {{/each}}
-</div>
+{{#search-tasks model=model}}
+  <div class="list-group">
+    {{#each model as |task|}}
+      <a href="#" {{action "viewTask" task.id}} class={{if task.completed "list-group-item list-group-item-success" "list-group-item list-group-item-danger" }}>
+        <div style="float: left;">
+          {{#if task.private}} {{fa-icon "user-secret" size="lg"}} {{/if}} {{task.name}}
+        </div>
+        <div style="float: right;">
+          {{#if task.completed}}
+          {{else}}
+          <button class="btn btn-default" type="submit" {{action "completeTask" task.id bubbles=false}}>{{t "list.task.complete"}}</button>
+          {{/if}}
+          <button class="btn btn-default" type="submit" {{action "deleteTask" task.id bubbles=false}}>{{t "list.task.delete"}}</button>
+        </div>
+        <div style="clear:both"></div>
+      </a>
+    {{else}}
+      <div class="list-group-item">{{t "list.task.none"}}</div>
+    {{/each}}
+  </div>
+{{/search-tasks}}
