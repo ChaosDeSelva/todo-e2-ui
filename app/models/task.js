@@ -6,5 +6,7 @@ export default DS.Model.extend({
   completed: DS.attr('boolean'),
   uid: DS.attr('string'),
   private: DS.attr('boolean'),
-  comments: DS.hasMany('comment')
+  comments: DS.hasMany('comment'),
+  tags: DS.attr('array'),
+  groups: DS.attr('array')
 });

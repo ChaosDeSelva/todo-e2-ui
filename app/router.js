@@ -15,6 +15,9 @@ Router.map(function() {
   this.route('createAccount', { path: '/create' });
   this.route('forgotPassword');
   this.route('reports');
+  this.route('group', function() {
+      this.route('view', { path:'/view/:group_id'});
+  });
 });
 
 export default Router;

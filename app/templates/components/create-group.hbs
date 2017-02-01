@@ -1,0 +1,25 @@
+<form>
+    <div class="form-group">
+        <label for="task">{{t "group.code"}}</label>
+        {{input type="text" id="groupCode" key-up="uppercaseCode" class="form-control" placeholder=(t "create.task.title") autofocus="autofocus" value=groupCode}}
+    </div>
+    <div class="form-group">
+        <label for="task">{{t "group.name"}}</label>
+        {{input type="text" id="groupName" class="form-control" placeholder=(t "create.task.title") autofocus="autofocus" value=groupName}}
+    </div>
+    <div class="form-group">
+        <label for="task">{{t "group.color"}}</label>
+        {{#bs-colorpicker color=color format="hex" classNames="input-group"}}
+            <input type="text" class="form-control">
+            <span class="input-group-addon"><i></i></span>
+        {{/bs-colorpicker}}
+    </div>
+    {{#if session.isLogged}}
+        <div class="form-group">
+            <div class="checkbox">
+                <label>{{input type="checkbox" checked=privateStatus}} <b>{{t "create.task.private"}}</b></label>
+            </div>
+        </div>
+    {{/if}}
+    <button class="btn btn-default" type="submit" {{action "createGroup"}}>{{t "create.task.submit"}}</button>
+</form>

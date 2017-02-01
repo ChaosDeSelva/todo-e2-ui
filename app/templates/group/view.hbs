@@ -1,0 +1,9 @@
+{{#if hasSelection}}
+<b>{{t "task.in"}} {{groupName}}</b>
+{{#each model as |task|}}
+    {{#link-to 'task' task.id tagName="li"}}<a href="#">{{task.name}}</a>{{/link-to}}
+{{/each}}
+<br/>
+<hr/>
+<br/>
+{{/if}}

@@ -14,7 +14,8 @@ module.exports = function(environment) {
       EXTEND_PROTOTYPES: {
         // Prevent Ember Data from overriding Date.parse.
         Date: false
-      }
+      },
+      ENABLE_DS_FILTER: true
     },
 
     APP: {
@@ -32,6 +33,8 @@ module.exports = function(environment) {
 
       ENV['services'] = {
         taskUrl: 'http://localhost:8888',
+        reportArchiveUrl: 'http://localhost:8887',
+        reportUrl: 'http://localhost:8889'
       };
   }
 
