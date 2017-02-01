@@ -1,11 +1,11 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
+  i18n: Ember.inject.service(),
+  session: Ember.inject.service(),
+
   username: '',
   password: '',
-
-  session: Ember.inject.service(),
-  i18n: Ember.inject.service(),
 
   actions:{
     login (){

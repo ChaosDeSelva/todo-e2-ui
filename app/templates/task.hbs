@@ -1,34 +1,62 @@
 <h1>{{t "task.title"}}</h1>
 
 <h5>{{t "task.name"}}</h5>
-{{#if model.private}} {{fa-icon "user-secret" size="lg"}} {{/if}} {{model.name}}
+{{#if model.task.private}} {{fa-icon "user-secret" size="lg"}} {{/if}} {{model.task.name}}
 <br/><br/>
 
 <h5>{{t "task.description"}}</h5>
-{{#if model.description}}
-  {{format-tags model.description}}
+{{#if model.task.description}}
+  {{format-tags model.task.description}}
 {{else}}
   {{t "task.description.none"}}
 {{/if}}
 <br/><br/>
 
 <h5>{{t "task.completed"}}</h5>
-{{#if model.completed}}
+{{#if model.task.completed}}
   {{fa-icon "check-circle" class="green" size="lg"}}
 {{else}}
   {{fa-icon "times-circle" class="red" size="lg"}}
 {{/if}}
 <br/><br/>
 
+<h5>{{t "task.tags"}}</h5>
+
+<ul class="tags">
+    {{#each model.task.tags as |tag|}}
+        <li><span class="tag">{{tag}}</span></li>
+    {{else}}
+        {{t "task.no.tags"}}
+    {{/each}}
+</ul>
+<br/>
+
+<h5>{{t "task.groups"}}</h5>
+{{#each listOfGroups as |group|}}
+    <table>
+        <tr>
+            <td>
+                <div style={{clean-string group.color}} class="groupColorIcon"></div>
+            </td>
+            <td valign="top" style="padding-left: 5px;">
+              {{group.name}}
+            </td>
+        </tr>
+    </table>
+{{else}}
+  {{t "task.no.groups"}}
+{{/each}}
+<br/><br/>
+
 <h5>{{t "task.date"}}</h5>
-{{date-format model.id}}
+{{date-format model.task.id}}
+
+<br/><br/><br/>
+
+{{comment-feeder model=model.task.comments}}
 
 <br/><br/>
 
-{{comment-feeder model=model.comments}}
-
-<br/><br/>
-
-{{comment-creator model=model.id}}
+{{comment-creator model=model.task.id}}
 
 <br/><br/>

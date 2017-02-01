@@ -22,6 +22,41 @@ export default {
   "nav.about": "Acerca de",
   "nav.home": "Casa",
 
+  "task.no.tags": "No etiquetas",
+  "task.no.groups": "No hay grupos",
+  "language": "Idioma",
+  "english": "Inglés",
+  "spanish": "Español",
+  "task.in": "Tareas en",
+
+  "group.code": "El codigo del grupo",
+  "group.name": "Nombre del grupo",
+  "group.color": "Grupo de color",
+
+  "delete.group": "Grupo...",
+  "delete.group.message": "¡Ido!",
+
+  "create.group.success.title": "¡¡¡SÍ!!!",
+  "create.group.success.message": "¡Los iguales del grupo crearon!",
+  "create.group.required.title": "¡¡¡NO!!!",
+  "create.group.required.message": "¡El grupo no igual creó!",
+
+  "create.groups": "Grupos",
+  "create.tag.input": "Pulse Intro para crear una etiqueta ...",
+  "create.groups.dropdown": "Seleccione un grupo ...",
+
+  "create.tag.no.title": "¿Por qué?",
+  "create.tag.no.message": "¡Una etiqueta necesita un nombre !!! ¡Arreglalo!",
+
+  "create.group.no.title": "Jajaja",
+  "create.group.no.message": "Usted ya está en el grupo dude.",
+
+  "list.group": "Hola",
+  "list.group.show.all": "Mostrar todo",
+  "list.group.show.mine": "Muestra mi",
+  "list.group.delete": "Eliminar grupo",
+  "list.group.none": "Lo sentimos, no se encontraron grupos.",
+
   "complete.title": "¡¡¡Guau!!!",
   "complete.message": "Realmente completó una tarea!",
   "delete.title": "Bien...",
@@ -31,6 +66,10 @@ export default {
   "reports.message": "Total de tareas registradas cada 24 horas",
   "about": "Acerca de",
   "about.message": "Así que esta aplicación web es para hacer una lista de tareas que probablemente nunca llegar a hacer.",
+
+  "task.tags":"Etiquetas",
+  "task.groups":"Grupos",
+  "nav.groups":"Grupos",
 
   "task.title":"Tarea",
   "task.name":"Nombre",

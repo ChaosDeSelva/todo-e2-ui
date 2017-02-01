@@ -1,0 +1,9 @@
+<h1>{{t "index.title"}}</h1>
+<div class="left">
+    {{list-group model=model goto=(action "goto")}}
+</div>
+<div class="right">
+    {{outlet}}
+    {{create-group}}
+</div>
+<div class="clr"></div>

@@ -1,19 +1,18 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
-      session: Ember.inject.service(),
-      i18n: Ember.inject.service(),
+    session: Ember.inject.service(),
 
-      beforeModel (){
-        var promise = new Ember.RSVP.Promise(function(resolve, reject) {
-          this.get('session').ping(resolve, reject);
+    beforeModel (){
+        var promise = new Ember.RSVP.Promise(function (resolve, reject) {
+            this.get('session').ping(resolve, reject);
         }.bind(this));
 
-        this.get('session').set('promise',promise);
-      },
+        this.get('session').set('promise', promise);
+    },
 
-      actions: {
-        error: function(error){
+    actions: {
+        error: function (error) {
             console.log(error);
             if (error.status === 0) {
                 window.swal('Hmm... Not Good.', 'Internet Issues?', 'error');

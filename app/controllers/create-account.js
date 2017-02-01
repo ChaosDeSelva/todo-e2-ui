@@ -1,12 +1,12 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
+  i18n: Ember.inject.service(),
+  session: Ember.inject.service(),
+
   username: '',
   password: '',
   confirmpassword: '',
-
-  session: Ember.inject.service(),
-  i18n: Ember.inject.service(),
 
   actions:{
     createAccount (){
@@ -27,7 +27,6 @@ export default Ember.Controller.extend({
       if (un.length > 0 || pw.length > 0 || cpw.length > 0){
         if (pw === cpw){
           this.get('session').createUser(un, pw, cpw).then((data)=>{
-            console.log(data);
             if (data.err){
               window.swal(badTitle, badText, 'error');
             } else {

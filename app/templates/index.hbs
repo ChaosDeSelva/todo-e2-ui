@@ -1,8 +1,8 @@
 <h1>{{t "index.title"}}</h1>
 <div class="left">
-  {{list-task model=model goto=(action "goto")}}
+  {{list-task model=model.task goto=(action "goto")}}
 </div>
 <div class="right">
-  {{create-task}}
+  {{create-task model=model.group}}
 </div>
 <div class="clr"></div>

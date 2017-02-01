@@ -22,6 +22,41 @@ export default {
   "nav.about": "About",
   "nav.home": "Home",
 
+  "task.no.tags": "No Tags",
+  "task.no.groups": "No Groups",
+  "language": "Language",
+  "english": "English",
+  "spanish": "Spanish",
+  "task.in": "Tasks in",
+
+  "group.code": "Group Code",
+  "group.name": "Group Name",
+  "group.color": "Group Color",
+
+  "create.tag.no.title": "Why?",
+  "create.tag.no.message": "A tag needs a name!!! Fix it!",
+
+  "create.group.no.title": "LOL",
+  "create.group.no.message": "You are already in the group dude.",
+
+  "delete.group": "Group...",
+  "delete.group.message": "Gone!",
+
+  "create.group.success.title": "YES!!!",
+  "create.group.success.message": "Group Equals Created!",
+  "create.group.required.title": "NO!!!",
+  "create.group.required.message": "Group Not Equals Created!",
+
+  "create.groups": "Groups",
+  "create.tag.input": "Press Enter to Create a Tag...",
+  "create.groups.dropdown": "Select a Group...",
+
+  "list.group": "Hello",
+  "list.group.show.all": "Show All",
+  "list.group.show.mine": "Show Mine",
+  "list.group.delete": "Delete Group",
+  "list.group.none": "Sorry, no groups found.",
+
   "complete.title": "Wow!!!",
   "complete.message": "You actually completed a task!",
   "delete.title": "Well...",
@@ -31,6 +66,10 @@ export default {
   "reports.message": "Total tasks logged every 24 hours",
   "about": "About",
   "about.message": "So this web application is for making a list of tasks that you will probably never get around to doing.",
+
+  "nav.groups":"Groups",
+  "task.tags":"Tags",
+  "task.groups":"Groups",
 
   "task.title":"Task",
   "task.name":"Name",
