@@ -61,13 +61,16 @@ export default Ember.Component.extend({
         deleteTask (id){
             const i18n = this.get('i18n');
 
+            var that = this;
+
             this.get('store').findRecord('task', id, {backgroundReload: false}).then(function (task) {
-                task.destroyRecord();
+                task.destroyRecord().then(function(){
+                  const deleteTitle = i18n.t('delete.title').string;
+                  const deleteMsg = i18n.t('delete.message').string;
 
-                const deleteTitle = i18n.t('delete.title').string;
-                const deleteMsg = i18n.t('delete.message').string;
-
-                window.swal(deleteTitle, deleteMsg, "success");
+                  window.swal(deleteTitle, deleteMsg, "success");
+                  that.send('modelChange');
+                });
             });
         }
     }
