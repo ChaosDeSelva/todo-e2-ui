@@ -1,32 +1,37 @@
-{{#if session.isLogged}}
-  <div style="float: left; padding: 5px;">
-    {{t "list.task"}} {{session.username}},
-  </div>
-  <div style="float: right; padding: 5px;">
-    {{#if filterEnabled}}
-      {{t "list.task.show.all"}} {{fa-icon "eye-slash" size="lg" class="btns" click=(action "filterOff")}}
+{{#search-tasks modelChanged=modelChanged filter=(action 'searchTasks') as |tasks|}}
+<br />
+
+  {{#if session.isLogged}}
+    <div style="float: left; padding: 5px;">
+      {{t "list.task"}} {{session.username}},
+    </div>
+    <div style="float: right; padding: 5px;">
+      {{#if filterEnabled}}
+        {{t "list.task.show.all"}} {{fa-icon "eye-slash" size="lg" class="btns" click=(action "filterOff")}}
+      {{else}}
+        {{t "list.task.show.mine"}} {{fa-icon "eye" size="lg" class="btns" click=(action "filterOn")}}
+      {{/if}}
+    </div>
+    <div style="clear:both"></div>
+  {{/if}}
+
+  <div class="list-group">
+    {{#each tasks as |task|}}
+      <a href="#" {{action "viewTask" task.id}} class={{if task.completed "list-group-item list-group-item-success" "list-group-item list-group-item-danger" }}>
+        <div style="float: left;">
+          {{#if task.private}} {{fa-icon "user-secret" size="lg"}} {{/if}} {{task.name}}
+        </div>
+        <div style="float: right;">
+          {{#if task.completed}}
+          {{else}}
+          <button class="btn btn-default" type="submit" {{action "completeTask" task.id bubbles=false}}>{{t "list.task.complete"}}</button>
+          {{/if}}
+          <button class="btn btn-default" type="submit" {{action "deleteTask" task.id bubbles=false}}>{{t "list.task.delete"}}</button>
+        </div>
+        <div style="clear:both"></div>
+      </a>
     {{else}}
-      {{t "list.task.show.mine"}} {{fa-icon "eye" size="lg" class="btns" click=(action "filterOn")}}
-    {{/if}}
+      <div class="list-group-item">{{t "list.task.none"}}</div>
+    {{/each}}
   </div>
-  <div style="clear:both"></div>
-{{/if}}
-<div class="list-group">
-  {{#each model as |task|}}
-    <a href="#" {{action "viewTask" task.id}} class={{if task.completed "list-group-item list-group-item-success" "list-group-item list-group-item-danger" }}>
-      <div style="float: left;">
-        {{#if task.private}} {{fa-icon "user-secret" size="lg"}} {{/if}} {{task.name}}
-      </div>
-      <div style="float: right;">
-        {{#if task.completed}}
-        {{else}}
-        <button class="btn btn-default" type="submit" {{action "completeTask" task.id bubbles=false}}>{{t "list.task.complete"}}</button>
-        {{/if}}
-        <button class="btn btn-default" type="submit" {{action "deleteTask" task.id bubbles=false}}>{{t "list.task.delete"}}</button>
-      </div>
-      <div style="clear:both"></div>
-    </a>
-  {{else}}
-    <div class="list-group-item">{{t "list.task.none"}}</div>
-  {{/each}}
-</div>
+{{/search-tasks}}
