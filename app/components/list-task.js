@@ -2,17 +2,28 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
 
+  store: Ember.inject.service(),
+  session: Ember.inject.service(),
+  i18n: Ember.inject.service(),
+
   filterEnabled: false,
+  modelChanged: 0,
 
   actions:{
     filterOn (){
       this.set('filterEnabled', true);
+      this.send('modelChange');
     },
     filterOff (){
       this.set('filterEnabled', false);
+      this.send('modelChange');
     },
     viewTask (id){
      this.get('goto')(id);
+    },
+    modelChange (){
+      var newVal = this.get('modelChanged') + 1;
+      this.set('modelChanged',  newVal);
     },
     searchTasks(param) {
       param = (param) ? param : "";
@@ -24,9 +35,9 @@ export default Ember.Component.extend({
       return new Promise( function(resolve, reject){
         resolve(model.filter(function(item){
           if( filterEnabled){
-            return (item.get('name').toLowerCase().includes(param) || item.get('description').toLowerCase().includes(param)) && item.get('uid') == sessionId;
+            return (item.get('name').toLowerCase().includes(param) || item.get('tags') && JSON.stringify(item.get('tags')).includes(param)) && item.get('uid') == sessionId;
           } else {
-            return item.get('name').toLowerCase().includes(param) || item.get('description').toLowerCase().includes(param);
+            return item.get('name').toLowerCase().includes(param) || item.get('tags') && JSON.stringify(item.get('tags')).includes(param);
           }
         })
       );
