@@ -1,2 +1,3 @@
-{{input value=value key-up=(action 'searchTasks') placeholder="Search Tasks"}}
+
+{{input value=value key-up=(action 'handleFilterEntry') placeholder="Search Tasks" class="form-control"}}
 {{yield results}}

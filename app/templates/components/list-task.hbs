@@ -1,19 +1,22 @@
-{{#if session.isLogged}}
-  <div style="float: left; padding: 5px;">
-    {{t "list.task"}} {{session.username}},
-  </div>
-  <div style="float: right; padding: 5px;">
-    {{#if filterEnabled}}
-      {{t "list.task.show.all"}} {{fa-icon "eye-slash" size="lg" class="btns" click=(action "filterOff")}}
-    {{else}}
-      {{t "list.task.show.mine"}} {{fa-icon "eye" size="lg" class="btns" click=(action "filterOn")}}
-    {{/if}}
-  </div>
-  <div style="clear:both"></div>
-{{/if}}
-{{#search-tasks model=model}}
+{{#search-tasks modelChanged=modelChanged filter=(action 'searchTasks') as |tasks|}}
+<br />
+
+  {{#if session.isLogged}}
+    <div style="float: left; padding: 5px;">
+      {{t "list.task"}} {{session.username}},
+    </div>
+    <div style="float: right; padding: 5px;">
+      {{#if filterEnabled}}
+        {{t "list.task.show.all"}} {{fa-icon "eye-slash" size="lg" class="btns" click=(action "filterOff")}}
+      {{else}}
+        {{t "list.task.show.mine"}} {{fa-icon "eye" size="lg" class="btns" click=(action "filterOn")}}
+      {{/if}}
+    </div>
+    <div style="clear:both"></div>
+  {{/if}}
+
   <div class="list-group">
-    {{#each model as |task|}}
+    {{#each tasks as |task|}}
       <a href="#" {{action "viewTask" task.id}} class={{if task.completed "list-group-item list-group-item-success" "list-group-item list-group-item-danger" }}>
         <div style="float: left;">
           {{#if task.private}} {{fa-icon "user-secret" size="lg"}} {{/if}} {{task.name}}

@@ -5,5 +5,6 @@ export default Ember.Controller.extend({
      goto (id){
         this.transitionToRoute('task', id);
      }
+    }
   }
 });

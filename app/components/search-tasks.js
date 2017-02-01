@@ -1,16 +1,26 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-  actions:{
-    searchTasks(){
-     var model = this.get('model');
-     var searchQuery = this.get("value");
+  classNames: ['list-filter'],
+  value: '',
 
-     if(searchQuery){
-       this.set('model', model);
-     } else {
-       this.set('model', model);
-     }
+  init() {
+    this._super(...arguments);
+    this.get('filter')('').then((results) => this.set('results', results));
+  },
+
+  actions: {
+    handleFilterEntry() {
+
+      let filterInputValue = this.get('value');
+      let filterAction = this.get('filter');
+
+      filterAction(filterInputValue).then((filterResults) => this.set('results', filterResults));
     }
-  }
+  },
+
+  modelChange: Ember.observer('modelChanged', function() {
+    this.send('handleFilterEntry');
+  })
+
 });
