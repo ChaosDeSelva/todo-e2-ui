@@ -31,6 +31,8 @@ export default Ember.Service.extend({
         headers: { 'Authorization': 'Basic ' + this.get('token') }
       }).then(()=>{
         this.set('token', null);
+        this.set('username', null);
+        this.set('uid', null);
         sessionStorage .removeItem("tasktoken");
       });
   },

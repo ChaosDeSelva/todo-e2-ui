@@ -7,33 +7,30 @@ export default Ember.Component.extend({
   i18n: Ember.inject.service(),
 
   filterEnabled: false,
-  modelChanged: 0,
 
   actions:{
     filterOn (){
       this.set('filterEnabled', true);
-      this.send('modelChange');
     },
     filterOff (){
       this.set('filterEnabled', false);
-      this.send('modelChange');
     },
     viewTask (id){
      this.get('goto')(id);
     },
-    modelChange (){
-      var newVal = this.get('modelChanged') + 1;
-      this.set('modelChanged',  newVal);
-    },
+
     searchTasks(param) {
       param = (param) ? param : "";
 
       var model = this.get('model');
       var filterEnabled = this.get('filterEnabled');
-      var sessionId = this.get('session.uid');
+      var sessionId = this.get('session.uid'); console.log(sessionId);
 
       return new Promise( function(resolve, reject){
         resolve(model.filter(function(item){
+          console.log(item);
+          console.log(item.get('uid'));
+          console.log(item.get('name'));
           if( filterEnabled){
             return (item.get('name').toLowerCase().includes(param) || item.get('tags') && JSON.stringify(item.get('tags')).includes(param)) && item.get('uid') == sessionId;
           } else {
@@ -64,13 +61,12 @@ export default Ember.Component.extend({
             var that = this;
 
             this.get('store').findRecord('task', id, {backgroundReload: false}).then(function (task) {
-                task.destroyRecord().then(function(){
-                  const deleteTitle = i18n.t('delete.title').string;
-                  const deleteMsg = i18n.t('delete.message').string;
+                task.destroyRecord();
 
-                  window.swal(deleteTitle, deleteMsg, "success");
-                  that.send('modelChange');
-                });
+              const deleteTitle = i18n.t('delete.title').string;
+              const deleteMsg = i18n.t('delete.message').string;
+
+              window.swal(deleteTitle, deleteMsg, "success");
             });
         }
     }

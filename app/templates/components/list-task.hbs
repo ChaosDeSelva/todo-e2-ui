@@ -1,4 +1,4 @@
-{{#search-tasks modelChanged=modelChanged filter=(action 'searchTasks') as |tasks|}}
+{{#search-tasks model=model filterEnabled=filterEnabled filter=(action 'searchTasks') as |tasks|}}
 <br />
 
   {{#if session.isLogged}}
