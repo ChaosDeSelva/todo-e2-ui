@@ -18,7 +18,7 @@ export default Ember.Component.extend({
     }
   },
 
-  modelChange: Ember.observer('model.[]', 'filterEnabled', function() { console.log('filterEnabled');
+  modelChange: Ember.observer('model.[]', 'filterEnabled', function() {
     this.send('handleFilterEntry');
   })
 

@@ -20,19 +20,16 @@ export default Ember.Component.extend({
     },
 
     searchTasks(param) {
-      param = (param) ? param : "";
+      param = (param) ? param.toLowerCase() : "";
 
       var model = this.get('model');
       var filterEnabled = this.get('filterEnabled');
-      var sessionId = this.get('session.uid'); console.log(sessionId);
+      var sessionId = this.get('session.uid');
 
-      return new Promise( function(resolve, reject){
+      return new Ember.RSVP.Promise( function(resolve, reject){
         resolve(model.filter(function(item){
-          console.log(item);
-          console.log(item.get('uid'));
-          console.log(item.get('name'));
           if( filterEnabled){
-            return (item.get('name').toLowerCase().includes(param) || item.get('tags') && JSON.stringify(item.get('tags')).includes(param)) && item.get('uid') == sessionId;
+            return (item.get('name').toLowerCase().includes(param) || item.get('tags') && JSON.stringify(item.get('tags')).includes(param)) && item.get('uid') === sessionId;
           } else {
             return item.get('name').toLowerCase().includes(param) || item.get('tags') && JSON.stringify(item.get('tags')).includes(param);
           }
@@ -57,8 +54,6 @@ export default Ember.Component.extend({
         },
         deleteTask (id){
             const i18n = this.get('i18n');
-
-            var that = this;
 
             this.get('store').findRecord('task', id, {backgroundReload: false}).then(function (task) {
                 task.destroyRecord();

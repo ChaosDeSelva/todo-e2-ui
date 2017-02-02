@@ -51,6 +51,11 @@ export default {
   "create.group.no.title": "Jajaja",
   "create.group.no.message": "Usted ya está en el grupo dude.",
 
+  "task.group.none":"Nada encontrado",
+  "group.title":"Administrar Grupos",
+  "search.text.task":"Tareas de búsqueda",
+  "search.text.groups":"Grupos de búsqueda",
+
   "list.group": "Hola",
   "list.group.show.all": "Mostrar todo",
   "list.group.show.mine": "Muestra mi",

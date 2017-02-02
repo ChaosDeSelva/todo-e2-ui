@@ -5,23 +5,36 @@ export default Ember.Component.extend({
     session: Ember.inject.service(),
     i18n: Ember.inject.service(),
 
-    cacheModel: [],
 
     filterEnabled: false,
 
     actions: {
         filterOn (){
             this.set('filterEnabled', true);
-            var model = this.get('model');
-            this.set('cacheModel', model);
-            this.set('model', model.filterBy('uid', this.get('session.uid')));
         },
         filterOff (){
             this.set('filterEnabled', false);
-            var cacheModel = this.get('cacheModel');
-            this.set('model', cacheModel);
-
         },
+      searchTasks(param) {
+        param = (param) ? param.toLowerCase() : "";
+
+        var model = this.get('model');
+        var filterEnabled = this.get('filterEnabled');
+        var sessionId = this.get('session.uid');
+
+        return new Ember.RSVP.Promise( function(resolve, reject){
+          resolve(model.filter(function(item){
+              if( filterEnabled){
+                return (item.get('name').toLowerCase().includes(param) || item.get('code').toLowerCase().includes(param)) && item.get('uid') === sessionId;
+              } else {
+                return item.get('name').toLowerCase().includes(param) || item.get('code').toLowerCase().includes(param);
+              }
+            })
+          );
+
+          reject(function(){ return false; });
+        });
+      },
         viewGroup (id){
             this.get('goto')(id);
         },

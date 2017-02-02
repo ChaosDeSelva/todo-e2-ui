@@ -1,9 +1,17 @@
 {{#if hasSelection}}
-<b>{{t "task.in"}} {{groupName}}</b>
-{{#each model as |task|}}
-    {{#link-to 'task' task.id tagName="li"}}<a href="#">{{task.name}}</a>{{/link-to}}
-{{/each}}
-<br/>
-<hr/>
-<br/>
+  <b>{{t "task.in"}} {{groupName}}</b>
+  <br/>
+  {{#each model as |task|}}
+      {{#link-to 'task' task.id}}{{fa-icon "tasks" size="lg"}} <span>{{task.name}}</span>{{/link-to}}
+  {{/each}}
+  <br/>
+  <hr/>
+  <br/>
+{{else}}
+  <b>{{t "task.in"}} {{groupName}}</b>
+  <br/>
+  {{t "task.group.none"}}
+  <br/>
+  <hr/>
+  <br/>
 {{/if}}

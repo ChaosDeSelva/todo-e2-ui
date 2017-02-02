@@ -39,6 +39,11 @@ export default {
   "create.group.no.title": "LOL",
   "create.group.no.message": "You are already in the group dude.",
 
+  "task.group.none":"None Found",
+  "group.title":"Manage Groups",
+  "search.text.task":"Search Tasks",
+  "search.text.groups":"Search Groups",
+
   "delete.group": "Group...",
   "delete.group.message": "Gone!",
 

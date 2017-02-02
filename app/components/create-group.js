@@ -12,7 +12,7 @@ export default Ember.Component.extend({
 
     actions:{
         uppercaseCode(){
-            this.set('groupCode', this.get('groupCode').toUpperCase())
+            this.set('groupCode', this.get('groupCode').toUpperCase());
         },
         createGroup (){
             var groupName = this.get('groupName');

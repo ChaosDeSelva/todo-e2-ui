@@ -1,3 +1,6 @@
+{{#search-tasks model=model filterEnabled=filterEnabled placeholder=(t "search.text.groups") filter=(action 'searchTasks') as |groups|}}
+  <br />
+
 {{#if session.isLogged}}
     <div style="float: left; padding: 5px;">
         {{t "list.group"}} {{session.username}},
@@ -12,7 +15,7 @@
     <div style="clear:both"></div>
 {{/if}}
 <div class="list-group">
-    {{#each model as |group|}}
+    {{#each groups as |group|}}
         <a href="#" {{action "viewGroup" group.id}}  class="list-group-item ">
             <div style="float: left;">
                 {{#if group.private}} {{fa-icon "user-secret" size="lg"}} {{/if}} {{group.code}} <br/>
@@ -36,3 +39,5 @@
         <div class="list-group-item">{{t "list.group.none"}}</div>
     {{/each}}
 </div>
+
+{{/search-tasks}}

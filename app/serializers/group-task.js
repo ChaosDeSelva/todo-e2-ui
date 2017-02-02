@@ -8,6 +8,6 @@ export default DS.RESTSerializer.extend({
                 id: payload._id,
                 type: payload.name
             }
-        }
+        };
     }
 });

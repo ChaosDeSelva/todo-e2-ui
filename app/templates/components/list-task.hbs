@@ -1,4 +1,4 @@
-{{#search-tasks model=model filterEnabled=filterEnabled filter=(action 'searchTasks') as |tasks|}}
+{{#search-tasks model=model filterEnabled=filterEnabled placeholder=(t "search.text.task") filter=(action 'searchTasks') as |tasks|}}
 <br />
 
   {{#if session.isLogged}}
