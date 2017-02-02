@@ -10,7 +10,7 @@ export default Ember.Route.extend({
         url: config.services.reportUrl+'/report'
       }).then((info)=>{
         return info;
-    });
+      });
   },
 
   model (){

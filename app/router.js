@@ -18,6 +18,7 @@ Router.map(function() {
   this.route('group', function() {
       this.route('view', { path:'/view/:group_id'});
   });
+  this.route('user');
 });
 
 export default Router;

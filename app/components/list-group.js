@@ -5,7 +5,6 @@ export default Ember.Component.extend({
     session: Ember.inject.service(),
     i18n: Ember.inject.service(),
 
-
     filterEnabled: false,
 
     actions: {

@@ -23,7 +23,7 @@ export default Ember.Controller.extend({
         chartArea: {width: '100%'},
         animation: {
           duration: 500,
-          startup: false,
+          startup: false
         },
         series: {
           0:{color:'#4285F4'},

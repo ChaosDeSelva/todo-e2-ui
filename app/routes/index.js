@@ -21,8 +21,6 @@ export default Ember.Route.extend({
       }.bind(this), function() {
           return this.getData();
       }.bind(this));
-
-
     }
   }
 });

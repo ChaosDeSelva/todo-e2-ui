@@ -14,9 +14,7 @@ export default Ember.Component.extend({
     groups: [],
 
     init(){
-        this._super(...arguments
-    )
-        ;
+        this._super(...arguments);
         this.set('tagName', '');
         this.set('taskName', '');
         this.set('description', '');

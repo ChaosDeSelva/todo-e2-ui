@@ -50,7 +50,11 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-
+    ENV['services'] = {
+      taskUrl: 'http://localhost:8888',
+      reportArchiveUrl: 'http://localhost:8887',
+      reportUrl: 'http://localhost:8889'
+    };
   }
 
   ENV.i18n = {
